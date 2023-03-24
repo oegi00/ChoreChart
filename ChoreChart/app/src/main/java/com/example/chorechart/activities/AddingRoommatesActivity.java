@@ -48,7 +48,6 @@ public class AddingRoommatesActivity extends AppCompatActivity {
         // When clicked, goes back to the previous activity
         toolbar.setNavigationIcon(ResourcesCompat.getDrawable(getResources(), R.drawable.ic_action_back, getTheme()));
         toolbar.setNavigationOnClickListener(view -> {
-            System.out.println("I am going back");
             onBackPressed();    // Using built-in function
         });
 
@@ -84,7 +83,8 @@ public class AddingRoommatesActivity extends AppCompatActivity {
         skipContinueButton.setOnClickListener(view -> {
             Intent addingRoommatesActivityIntent = getIntent();
             String addingRoommatesActivityMessage = addingRoommatesActivityIntent.getStringExtra("userName");
-            // To start a new Activity, uncomment the code below and enter the the name of the class to jump to. Remove this comment when finished.
+
+            // TODO To start a new Activity, uncomment the code below and enter the name of the class to jump to.
 
 //            Intent homeScreenIntent = new Intent(this, Enter the Class Name);
 //
@@ -118,6 +118,7 @@ public class AddingRoommatesActivity extends AppCompatActivity {
         return super.dispatchTouchEvent(ev);
     }
 
+    // Changes the button text
     private class InputValidator implements TextWatcher {
 
         @Override

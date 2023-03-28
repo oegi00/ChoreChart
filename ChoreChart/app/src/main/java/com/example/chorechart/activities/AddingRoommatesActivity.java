@@ -86,7 +86,7 @@ public class AddingRoommatesActivity extends AppCompatActivity {
             String addingRoommatesActivityMessage = addingRoommatesActivityIntent.getStringExtra("userName");
             // To start a new Activity, uncomment the code below and enter the the name of the class to jump to. Remove this comment when finished.
 
-//            Intent homeScreenIntent = new Intent(this, Enter the Class Name);
+//            Intent homeScreenIntent = new Intent(this, ChoreDetailsActivity.class);
 //
 //            homeScreenIntent.putExtra("userName", addingRoommatesActivityMessage);
 //            homeScreenIntent.putExtra("roommate1", roommate1.getText().toString());

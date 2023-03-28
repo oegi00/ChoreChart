@@ -15,7 +15,7 @@
         app:layout_constraintBaseline_toBaselineOf="@+id/chore_details_deadline"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <EditText
+    <TextView
         android:id="@+id/chore_details_deadline"
         android:layout_width="113dp"
         android:layout_height="49dp"
@@ -28,7 +28,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/chore_details_assignee" />
 
-    <EditText
+    <TextView
         android:id="@+id/chore_details_description"
         android:layout_width="113dp"
         android:layout_height="49dp"
@@ -49,9 +49,9 @@
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/cleaning_dishes" />
+        android:src="@drawable/cleaning_dishes" />
 
-    <EditText
+    <TextView
         android:id="@+id/chore_details_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -63,12 +63,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
+    <TextView
         android:id="@+id/chore_details_location"
         android:layout_width="113dp"
         android:layout_height="51dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="264dp"
+        android:editable="false"
         android:ems="10"
         android:inputType="none|textPersonName"
         android:text="Location:"
@@ -86,12 +87,13 @@
         app:layout_constraintBaseline_toBaselineOf="@+id/chore_details_location"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <EditText
+    <TextView
         android:id="@+id/chore_details_assignee"
         android:layout_width="113dp"
         android:layout_height="49dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:editable="false"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Assignee:"
@@ -124,7 +126,7 @@
         android:id="@+id/chore_details_save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="48dp"
+        android:layout_marginBottom="16dp"
         android:text="Close"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

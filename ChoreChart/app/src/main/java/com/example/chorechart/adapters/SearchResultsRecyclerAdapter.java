@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.chorechart.R;
+import com.example.chorechart.activities.ChoreDetailsActivity;
 import com.example.chorechart.activities.SearchChoreActivity;
 import com.example.chorechart.data.Chore;
 import com.example.chorechart.data.Roommate;
@@ -77,12 +78,12 @@ public class SearchResultsRecyclerAdapter extends RecyclerView.Adapter<SearchRes
             doneButton = itemView.findViewById(R.id.card_layout_done_button);
 
             itemView.setOnClickListener(view -> {
-//                int chorePosition = getOnChoreClickedPosition();
-//                Intent intent = new Intent(context, SearchChoreActivity.class);
-//
-//                intent.putExtra("chore", choreList.get(chorePosition));
-//                intent.putExtra("roommates", roommates);
-//                context.startActivity(intent);
+                int chorePosition = getOnChoreClickedPosition();
+                Intent intent = new Intent(context, ChoreDetailsActivity.class);
+
+                intent.putExtra("chore", choreList.get(chorePosition));
+                intent.putExtra("roommates", roommates);
+                context.startActivity(intent);
             });
 
             doneButton.setOnClickListener(view -> {

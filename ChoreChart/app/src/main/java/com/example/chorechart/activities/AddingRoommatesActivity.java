@@ -19,7 +19,11 @@ import android.widget.TextView;
 
 import com.example.chorechart.MainActivity;
 import com.example.chorechart.R;
+import com.example.chorechart.data.Chore;
+import com.example.chorechart.data.Roommate;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.ArrayList;
 
 public class AddingRoommatesActivity extends AppCompatActivity {
 
@@ -79,21 +83,19 @@ public class AddingRoommatesActivity extends AppCompatActivity {
                     System.out.println(numberOfRoommates);
             }
         });
+
         // Sends the user to the next activity when they press Skip/Continue button
         skipContinueButton.setOnClickListener(view -> {
             Intent addingRoommatesActivityIntent = getIntent();
-            String addingRoommatesActivityMessage = addingRoommatesActivityIntent.getStringExtra("userName");
+            String addingRoommatesActivityMessage = addingRoommatesActivityIntent.getStringExtra("userName");   // Retrieves the username from the last activity
+            ArrayList<Chore> choreList = (ArrayList<Chore>) addingRoommatesActivityIntent.getSerializableExtra("chore_list");   // Retrieves the chore list from the previous activity
+            ArrayList<Roommate> roommates = createRoommateList(addingRoommatesActivityMessage, roommate1.getText().toString(), roommate2.getText().toString(), roommate3.getText().toString());
+            Intent intent = new Intent(this, SearchChoreActivity.class);
 
-            // TODO To start a new Activity, uncomment the code below and enter the name of the class to jump to.
+            intent.putExtra("roommates", roommates);    // Passes the roommate list to the next activity
+            intent.putExtra("chore_list", choreList);   // Passes the chore list to the next activity
 
-//            Intent homeScreenIntent = new Intent(this, Enter the Class Name);
-//
-//            homeScreenIntent.putExtra("userName", addingRoommatesActivityMessage);
-//            homeScreenIntent.putExtra("roommate1", roommate1.getText().toString());
-//            homeScreenIntent.putExtra("roommate2", roommate2.getText().toString());
-//            homeScreenIntent.putExtra("roommate3", roommate3.getText().toString());
-//
-//            startActivity(homeScreenIntent);
+            startActivity(intent);
         });
 
         // Changes the button text from Skip to Continue or Continue to Skip based on if any text is present in EditText boxes
@@ -140,5 +142,26 @@ public class AddingRoommatesActivity extends AppCompatActivity {
         public void afterTextChanged(Editable editable) {
 
         }
+    }
+
+    public ArrayList<Roommate> createRoommateList(String roommate1, String roommate2, String roommate3, String roommate4) {
+        ArrayList<Roommate> roommates = new ArrayList<>();
+
+        Roommate nRoommate1 = new Roommate(roommate1, "This is you");
+        roommates.add(nRoommate1);
+        if (!roommate2.isEmpty()) {
+            Roommate nRoommate2 = new Roommate(roommate2, "Roommate #1 you entered");
+            roommates.add(nRoommate2);
+        }
+        if (!roommate3.isEmpty()) {
+            Roommate nRoommate3 = new Roommate(roommate3, "Roommate #2 you entered");
+            roommates.add(nRoommate3);
+        }
+        if (!roommate4.isEmpty()) {
+            Roommate nRoommate4 = new Roommate(roommate4, "Roommate #3 you entered");
+            roommates.add(nRoommate4);
+        }
+
+        return roommates;
     }
 }

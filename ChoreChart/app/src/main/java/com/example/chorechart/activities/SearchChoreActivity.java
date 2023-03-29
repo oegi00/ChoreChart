@@ -21,12 +21,13 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.chorechart.R;
+import com.example.chorechart.data.Chore;
+import com.example.chorechart.data.Roommate;
 
 import java.util.ArrayList;
 import java.util.Locale;
 
 public class SearchChoreActivity extends AppCompatActivity {
-
     private Toolbar toolbar;
     private final Calendar calendar = Calendar.getInstance();
     private EditText choreName;
@@ -34,7 +35,11 @@ public class SearchChoreActivity extends AppCompatActivity {
     private EditText location;
     private EditText deadline;
     private Button searchButton;
+    private Button clearDeadlineButton;
     private int dropdownPosition = 0;   // Tracks the selected position of the dropdown menu
+    private ArrayList<Chore> choreList;
+    private ArrayList<Roommate> roommates;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,22 +51,21 @@ public class SearchChoreActivity extends AppCompatActivity {
         location = findViewById(R.id.searchLocationEditView);
         deadline = findViewById(R.id.searchDeadlineEditText);
         searchButton = findViewById(R.id.searchChoreButton);
+        clearDeadlineButton = findViewById(R.id.clearDeadlineButton);
 
-        // TODO uncomment the following line
-        //Intent searchChoreActivityIntent = getIntent();
+        Intent searchChoreActivityIntent = getIntent();
+        roommates = (ArrayList<Roommate>) searchChoreActivityIntent.getSerializableExtra("roommates");  // Retrieves the roommate list from the previous activity
         ArrayList<String> names = new ArrayList<>();
         names.add("Select assignee");
 
-        // TODO uncomment next lines
-//        names.add(searchChoreActivityIntent.getStringExtra("userName"));
-//        String roommate1 = searchChoreActivityIntent.getStringExtra("roommate1");
-//        String roommate2 = searchChoreActivityIntent.getStringExtra("roommate2");
-//        String roommate3 = searchChoreActivityIntent.getStringExtra("roommate3");
+        for (int i = 0; i < roommates.size(); i++) {
+            names.add(roommates.get(i).getName());
+        }
 
-//        if (!roommate1.isEmpty()) { names.add(roommate1); }
-//        if (!roommate2.isEmpty()) { names.add(roommate2); }
-//        if (!roommate3.isEmpty()) { names.add(roommate3); }
+        choreList = (ArrayList<Chore>) searchChoreActivityIntent.getSerializableExtra("chore_list");    // Retrieves the chore list form the previous activity
 
+
+        // Creates the dropdown menu for the assignee field
         ArrayAdapter<String> assigneeAdapter = new ArrayAdapter<>(this, R.layout.spinner__dropdown_item, names);
         assignee.setAdapter(assigneeAdapter);
 
@@ -98,13 +102,23 @@ public class SearchChoreActivity extends AppCompatActivity {
 
         searchButton.setOnClickListener(view -> {
             Intent searchResultsActivityIntent = new Intent(SearchChoreActivity.this, SearchResultsActivity.class);
+            String nameStr = null, assigneeStr = null, locationStr = null, deadlineStr = null;
 
-            searchResultsActivityIntent.putExtra("name", choreName.getText().toString());
-            searchResultsActivityIntent.putExtra("assignee", names.get(dropdownPosition));
-            searchResultsActivityIntent.putExtra("location", location.getText().toString());
-            searchResultsActivityIntent.putExtra("deadline", deadline.getText().toString());
+            if (!choreName.getText().toString().isEmpty()) { nameStr = choreName.getText().toString(); }
+            if (!names.get(dropdownPosition).equals("Select assignee")) { assigneeStr = names.get(dropdownPosition); }
+            if (!location.getText().toString().isEmpty()) { locationStr = location.getText().toString(); }
+            if (!deadline.getText().toString().isEmpty()) { deadlineStr = deadline.getText().toString(); }
+
+            Chore choreToFind = new Chore(nameStr, assigneeStr, locationStr, deadlineStr, null);
+            searchResultsActivityIntent.putExtra("roommates", roommates);   // Passes the roommate list to the next activity
+            searchResultsActivityIntent.putExtra("choreList", choreList);   // Passes the chore list to the next activity
+            searchResultsActivityIntent.putExtra("choreToFind", choreToFind);   // Passes the chore to find to the next activity
 
             startActivity(searchResultsActivityIntent);
+        });
+
+        clearDeadlineButton.setOnClickListener(view -> {
+            deadline.setText("");
         });
     }
 

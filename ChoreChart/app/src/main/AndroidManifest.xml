@@ -21,6 +21,9 @@
             android:name=".activities.AddingRoommatesActivity"
             android:exported="false" />
         <activity
+            android:name=".activities.ChoreDetailsActivity"
+            android:exported="false"/>
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

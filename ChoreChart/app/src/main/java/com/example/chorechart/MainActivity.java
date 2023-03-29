@@ -16,6 +16,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.chorechart.activities.AddingRoommatesActivity;
+import com.example.chorechart.data.Chore;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ArrayList<Chore> choreList = createChores();    // Creates some random chores
 
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
 
@@ -49,8 +54,10 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent addingRoommatesActivityIntent = new Intent(this, AddingRoommatesActivity.class);
 
-                addingRoommatesActivityIntent.putExtra("userName", userName);
-                startActivity(addingRoommatesActivityIntent);
+                addingRoommatesActivityIntent.putExtra("userName", userName);   // Pass user name to the next activity
+                addingRoommatesActivityIntent.putExtra("chore_list", choreList);    // Pass chores to the next activity
+
+                startActivity(addingRoommatesActivityIntent);   // Start an activity
         });
     }
 
@@ -67,5 +74,42 @@ public class MainActivity extends AppCompatActivity {
                 ((InputMethodManager)this.getSystemService(Context.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow((this.getWindow().getDecorView().getApplicationWindowToken()), 0);
         }
         return super.dispatchTouchEvent(ev);
+    }
+
+    public ArrayList<Chore> createChores() {
+        ArrayList<Chore> choreList = new ArrayList<>();
+        choreList.add(new Chore(
+                "Vacuum",
+                "Nazar Kopelchak",
+                "Living Room",
+                "03/26/2023",
+                "Clean the living room for the upcoming party"
+        ));
+
+        choreList.add(new Chore(
+                "Vacuum",
+                "Nazar Kopelchak",
+                "Bedroom",
+                "03/26/2023",
+                "Clean the living room for the upcoming party"
+        ));
+
+        choreList.add(new Chore(
+                "Dishes",
+                "Nazar Kopelchak",
+                "Kitchen",
+                "03/25/2023",
+                "Wash the dishes"
+        ));
+
+        choreList.add(new Chore(
+                "Sweep",
+                "Nazar Kopelchak",
+                "Kitchen",
+                "03/26/2023",
+                "Sweep the kitchen for the upcoming party"
+        ));
+
+        return choreList;
     }
 }

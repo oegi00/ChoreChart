@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/ "
+        android:id="@+id/addRoommateToolbar"
         android:layout_width="413dp"
         android:layout_height="62dp"
         android:background="#00b3ff"
@@ -30,10 +30,11 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="94dp"
+        android:layout_height="53dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="200dp"
+        android:backgroundTint="#00b3ff"
         android:text="ENTER"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
@@ -70,7 +71,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName4"
+        android:id="@+id/roomateProfileTextBox"
         android:layout_width="228dp"
         android:layout_height="77dp"
         android:layout_marginStart="16dp"
@@ -82,10 +83,11 @@
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="94dp"
+        android:layout_height="54dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:backgroundTint="#00b3ff"
         android:text="CANCEL"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button" />

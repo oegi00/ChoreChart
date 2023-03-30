@@ -15,6 +15,9 @@
             android:name=".activities.SearchResultsActivity"
             android:exported="false" />
         <activity
+            android:name=".activities.AddingRoommateProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.SearchChoreActivity"
             android:exported="false" />
         <activity

@@ -35,6 +35,7 @@ public class AddingRoommateProfileActivity extends AppCompatActivity{
     }
 
 
+    // Removes virtual keyboard from the screen when the user taps anywhere on the screen except EditText boxes
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
         View view = getCurrentFocus();

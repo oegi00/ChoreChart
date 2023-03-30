@@ -1,4 +1,4 @@
-package com.example.myapplication3.ui.profile;
+package com.example.chorechart.ui.profile;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

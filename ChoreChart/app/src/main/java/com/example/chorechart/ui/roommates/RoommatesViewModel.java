@@ -1,4 +1,4 @@
-package com.example.myapplication3.ui.roommates;
+package com.example.chorechart.ui.roommates;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

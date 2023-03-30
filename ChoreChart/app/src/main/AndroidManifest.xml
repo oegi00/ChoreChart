@@ -6,11 +6,23 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_chore_chart"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.ChoreChart"
         tools:targetApi="31">
+        <activity
+            android:name=".activities.SearchResultsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.SearchChoreActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.AddingRoommatesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.ChoreDetailsActivity"
+            android:exported="false"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">

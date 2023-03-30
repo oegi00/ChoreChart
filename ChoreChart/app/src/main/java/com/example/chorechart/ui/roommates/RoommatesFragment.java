@@ -1,4 +1,4 @@
-package com.example.myapplication3.ui.roommates;
+package com.example.chorechart.ui.roommates;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

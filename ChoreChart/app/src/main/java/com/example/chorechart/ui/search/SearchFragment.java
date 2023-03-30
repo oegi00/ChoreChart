@@ -1,4 +1,4 @@
-package com.example.myapplication3.ui.search;
+package com.example.chorechart.ui.search;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

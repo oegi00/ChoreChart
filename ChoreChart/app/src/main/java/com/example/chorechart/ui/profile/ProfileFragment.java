@@ -1,4 +1,4 @@
-package com.example.myapplication3.ui.profile;
+package com.example.chorechart.ui.profile;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

@@ -6,8 +6,8 @@
     android:layout_height="match_parent">
 
     <include
-        android:id="@+id/NewchoreDetailsToolbar"
-        layout="@layout/chore_details_toolbar"/>
+        android:id="@+id/searchScreenToolBarTitle"
+        layout="@layout/new_chore_details_toolbar"/>
 
     <ImageView
         android:id="@+id/chore_details_image"
@@ -137,8 +137,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:text="Close"
         android:backgroundTint="#00b3ff"
+        android:text="Done"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

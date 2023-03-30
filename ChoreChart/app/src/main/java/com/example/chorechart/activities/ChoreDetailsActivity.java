@@ -7,7 +7,6 @@ import androidx.core.content.res.ResourcesCompat;
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.icu.text.SimpleDateFormat;
 import android.icu.util.Calendar;
 import android.os.Bundle;
@@ -21,11 +20,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.chorechart.MainActivity;
 import com.example.chorechart.R;
 import com.example.chorechart.data.Chore;
 import com.example.chorechart.data.Roommate;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -46,7 +43,7 @@ public class ChoreDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chore_details);
 
-        toolbar = findViewById(R.id.choreDetailsToolbar);
+        toolbar = findViewById(R.id.NewchoreDetailsToolbar);
 
         title = findViewById(R.id.chore_details_title);
         location = findViewById(R.id.chore_details_location_entry);

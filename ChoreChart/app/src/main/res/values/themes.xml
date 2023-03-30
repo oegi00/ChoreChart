@@ -13,4 +13,13 @@
         <item name="android:statusBarColor">#00b3ff</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="Theme.ChoreChart.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.ChoreChart.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.ChoreChart.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

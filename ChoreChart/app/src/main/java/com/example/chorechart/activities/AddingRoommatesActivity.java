@@ -90,7 +90,7 @@ public class AddingRoommatesActivity extends AppCompatActivity {
             String addingRoommatesActivityMessage = addingRoommatesActivityIntent.getStringExtra("userName");   // Retrieves the username from the last activity
             ArrayList<Chore> choreList = (ArrayList<Chore>) addingRoommatesActivityIntent.getSerializableExtra("chore_list");   // Retrieves the chore list from the previous activity
             ArrayList<Roommate> roommates = createRoommateList(addingRoommatesActivityMessage, roommate1.getText().toString(), roommate2.getText().toString(), roommate3.getText().toString());
-            Intent intent = new Intent(this, SearchChoreActivity.class);
+            Intent intent = new Intent(this, HomepageActivity.class);
 
             intent.putExtra("roommates", roommates);    // Passes the roommate list to the next activity
             intent.putExtra("chore_list", choreList);   // Passes the chore list to the next activity

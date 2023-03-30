@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">ChoreChart</string>
+    <string name="title_activity_homepage">HomepageActivity</string>
+    <string name="chore1">"Fill dishwasher"</string>
+    <string name="chore2">"Empty dishwasher"</string>
+    <string name="chore3">"Sweep floors"</string>
+    <string name="chore4">"Take out the trash"</string>
+    <string name="chore5">"Laundry"</string>
+    <string name="chore6">"Clean bathroom"</string>
+    <string name="chore7">"Vacuum"</string>
+    <string name="chore8">"Organize kitchen"</string>
+    <string name="chore9">"Dust"</string>
+    <string name="chore10">"Take out the Recycling"</string>
+    <string name="action_settings">Settings</string>
 </resources>

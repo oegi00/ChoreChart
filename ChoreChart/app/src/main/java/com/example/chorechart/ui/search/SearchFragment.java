@@ -10,10 +10,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
 
-import com.example.myapplication3.R;
-import com.example.myapplication3.ui.roommates.RoommatesViewModel;
+import com.example.chorechart.R;
 
 public class SearchFragment extends Fragment {
 
@@ -22,7 +21,7 @@ public class SearchFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
             ViewGroup container, Bundle savedInstanceState) {
         searchViewModel =
-                ViewModelProviders.of(this).get(SearchViewModel.class);
+                new ViewModelProvider(this).get(SearchViewModel.class);
         View root = inflater.inflate(R.layout.fragment_search, container, false);
 //        final TextView textView = root.findViewById(R.id.text_search);
 //        searchViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {

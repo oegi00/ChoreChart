@@ -1,4 +1,4 @@
-package com.example.myapplication3.ui.menu;
+package com.example.chorechart.ui.menu;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

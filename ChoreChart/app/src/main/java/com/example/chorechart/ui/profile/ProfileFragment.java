@@ -10,10 +10,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
 
-import com.example.myapplication3.R;
-import com.example.myapplication3.ui.roommates.RoommatesViewModel;
+import com.example.chorechart.R;
 
 public class ProfileFragment extends Fragment {
 
@@ -22,7 +21,7 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
             ViewGroup container, Bundle savedInstanceState) {
         profileViewModel =
-                ViewModelProviders.of(this).get(ProfileViewModel.class);
+                new ViewModelProvider(this).get(ProfileViewModel.class);
         View root = inflater.inflate(R.layout.fragment_profile, container, false);
 //        final TextView textView = root.findViewById(R.id.text_profile);
 //        profileViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {

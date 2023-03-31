@@ -19,6 +19,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.chorechart.R;
 import com.example.chorechart.data.Chore;
@@ -55,6 +56,8 @@ public class ChoreDetailsActivity extends AppCompatActivity {
         Intent choreDetailsActivityIntent = getIntent();
         Chore chore = (Chore) choreDetailsActivityIntent.getSerializableExtra("chore");
         ArrayList<Roommate> roommates = (ArrayList<Roommate>) choreDetailsActivityIntent.getSerializableExtra("roommates");
+        ArrayList<Chore> choreList = (ArrayList<Chore>) choreDetailsActivityIntent.getSerializableExtra("chore_list");
+        int chorePosition = Integer.parseInt(choreDetailsActivityIntent.getStringExtra("position"));
 
         title.setText(chore.getChoreName());
         location.setText(chore.getLocation());
@@ -80,51 +83,16 @@ public class ChoreDetailsActivity extends AppCompatActivity {
 
         deadline.setOnClickListener(view -> new DatePickerDialog(ChoreDetailsActivity.this, date, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)).show());
 
-        // Changes the font of the toolbar title
-//        Typeface type = Typeface.createFromAsset(getAssets(), "fonts/Chewy-Regular.ttf");
-//        toolBarTitle.setTypeface(type);
-
-        // Adds "Enter Your Roommate Full Name" fields when the user presses the button
-//        addAnotherRoommateButton.setOnClickListener(view -> {
-//            switch (numberOfRoommates) {
-//                case 1:
-//                    TextView roommate2TextView = findViewById(R.id.roommate2TextView);
-//                    roommate2TextView.setVisibility(View.VISIBLE);
-//                    roommate2.setVisibility(View.VISIBLE);
-//                    numberOfRoommates++;
-//                    break;
-//                case 2:
-//                    TextView roommate3TextView = findViewById(R.id.roommate3TextView);
-//                    roommate3TextView.setVisibility(View.VISIBLE);
-//                    roommate3.setVisibility(View.VISIBLE);
-//                    numberOfRoommates++;
-//
-//                    TextView addAnotherRoommateTip = findViewById(R.id.addAnotherRoommateTip);
-//                    addAnotherRoommateTip.setVisibility(View.GONE);
-//                    addAnotherRoommateButton.setVisibility(View.GONE);
-//                    break;
-//                default:
-//                    //Debugging print statement
-//                    System.out.println(numberOfRoommates);
-//            }
-//        });
-        // Sends the user to the next activity when they press Skip/Continue button
         save.setOnClickListener(view -> {
-            Intent addingRoommatesActivityIntent = getIntent();
-            String addingRoommatesActivityMessage = addingRoommatesActivityIntent.getStringExtra("userName");
-            // To start a new Activity, uncomment the code below and enter the the name of the class to jump to. Remove this comment when finished.
-
-//            Intent homeScreenIntent = new Intent(this, Enter the Class Name);
-
-//            homeScreenIntent.putExtra("userName", addingRoommatesActivityMessage);
-//            homeScreenIntent.putExtra("roommate1", roommate1.getText().toString());
-//            homeScreenIntent.putExtra("roommate2", roommate2.getText().toString());
-//            homeScreenIntent.putExtra("roommate3", roommate3.getText().toString());
-
-//            startActivity(homeScreenIntent);
+            Toast.makeText(this, "Chore Saved", Toast.LENGTH_SHORT);
+            Chore modifiedChore = new Chore(title.getText().toString(), assignee.getText().toString(), location.getText().toString(), deadline.getText().toString(), description.getText().toString());
+            choreList.set(chorePosition, modifiedChore);
+            Intent homePageActivity = new Intent(this, HomepageActivity.class);
+            homePageActivity.putExtra("roommates", roommates);
+            homePageActivity.putExtra("chore_list", choreList);
+            startActivity(homePageActivity);
         });
 
-        // Changes the button text from Skip to Continue or Continue to Skip based on if any text is present in EditText boxes
         // Utilizes InputValidator class
         deadline.addTextChangedListener(new InputValidator());
         location.addTextChangedListener(new InputValidator());

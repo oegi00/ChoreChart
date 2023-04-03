@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_add">
+
+    <fragment
+        android:id="@+id/fragment_menu"
+        android:name="com.example.chorechart.ui.menu.MenuFragment"
+        android:label="Menu"
+        tools:layout="@layout/fragment_menu" />
+
+    <fragment
+        android:id="@+id/fragment_roommates"
+        android:name="com.example.chorechart.ui.roommates.RoommatesFragment"
+        android:label="Roommates"
+        tools:layout="@layout/fragment_roommates" />
+
+    <fragment
+        android:id="@+id/fragment_add"
+        android:name="com.example.chorechart.ui.add.AddFragment"
+        android:label="Add Chore"
+        tools:layout="@layout/add_a_new_chore_pg1" />
+    <fragment
+        android:id="@+id/fragment_search"
+        android:name="com.example.chorechart.ui.search.SearchFragment"
+        android:label="Search Chores"
+        tools:layout="@layout/fragment_search" />
+    <fragment
+        android:id="@+id/fragment_profile"
+        android:name="com.example.chorechart.ui.profile.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/profile_page" />
+    <activity
+        android:id="@+id/homepageActivity"
+        android:name="com.example.chorechart.activities.HomepageActivity"
+        android:label="activity_homepage"
+        tools:layout="@layout/activity_homepage" />
+    <activity
+        android:id="@+id/profilePage"
+        android:name="com.example.chorechart.activities.ProfilePage"
+        android:label="ProfilePage" />
+    <activity
+        android:id="@+id/addANewChore"
+        android:name="com.example.chorechart.activities.AddANewChore"
+        android:label="AddANewChore" />
+</navigation>

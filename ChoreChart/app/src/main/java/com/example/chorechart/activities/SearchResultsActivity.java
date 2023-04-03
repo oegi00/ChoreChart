@@ -34,7 +34,7 @@ public class SearchResultsActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         Intent searchResultsActivityIntent = getIntent();
 
-        choreList = (ArrayList<Chore>) searchResultsActivityIntent.getSerializableExtra("choreList");   // Retrieves the chore list from the previous activity
+        choreList = (ArrayList<Chore>) searchResultsActivityIntent.getSerializableExtra("chore_list");   // Retrieves the chore list from the previous activity
         Chore choreToFind = (Chore) searchResultsActivityIntent.getSerializableExtra("choreToFind");    //  Retrieves the chore to find from the previous activity
         roommates = (ArrayList<Roommate>) searchResultsActivityIntent.getSerializableExtra("roommates");
         ArrayList<Chore> searchResults = findChores(choreToFind);

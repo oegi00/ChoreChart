@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="420dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/homepage_card_view"
+        app:cardBackgroundColor="#e4ebe5"
+        app:cardElevation="3dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:weightSum="2">
+
+            <TextView
+                android:layout_width="260dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/homescreen_chore_title"
+                android:text="Chore 1"
+                android:textSize="24dp"
+                android:textColor="@color/black"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="8dp"/>
+
+            <TextView
+                android:layout_width="260dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/homescreen_chore_deadline"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="36dp"
+                android:text="Due: 12/31/2023"
+                android:textSize="16dp"
+                android:textColor="@color/black"/>
+
+            <ImageButton
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:id="@+id/homescreen_profile_button"
+                android:background="#e4ebe5"
+                android:layout_marginStart="280dp"
+                android:layout_marginTop="4dp"
+                android:src="@drawable/homescreen_toolbar_user_icon"/>
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/homescreen_chore_completed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="350dp"
+                android:clickable="true"
+                android:layout_marginTop="6dp"
+                app:backgroundTint="#06c219"
+                app:ensureMinTouchTargetSize="false"
+                app:fabCustomSize="44dp"
+                app:srcCompat="@drawable/outline_done" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

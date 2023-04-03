@@ -111,7 +111,7 @@ public class SearchChoreActivity extends AppCompatActivity {
 
             Chore choreToFind = new Chore(nameStr, assigneeStr, locationStr, deadlineStr, null);
             searchResultsActivityIntent.putExtra("roommates", roommates);   // Passes the roommate list to the next activity
-            searchResultsActivityIntent.putExtra("choreList", choreList);   // Passes the chore list to the next activity
+            searchResultsActivityIntent.putExtra("chore_list", choreList);   // Passes the chore list to the next activity
             searchResultsActivityIntent.putExtra("choreToFind", choreToFind);   // Passes the chore to find to the next activity
 
             startActivity(searchResultsActivityIntent);

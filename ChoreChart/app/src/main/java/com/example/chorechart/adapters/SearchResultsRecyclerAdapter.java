@@ -78,10 +78,12 @@ public class SearchResultsRecyclerAdapter extends RecyclerView.Adapter<SearchRes
             doneButton = itemView.findViewById(R.id.card_layout_done_button);
 
             itemView.setOnClickListener(view -> {
-                int chorePosition = getOnChoreClickedPosition();
+                Integer chorePosition = getOnChoreClickedPosition();
                 Intent intent = new Intent(context, ChoreDetailsActivity.class);
 
+                intent.putExtra("chore_list", choreList);
                 intent.putExtra("chore", choreList.get(chorePosition));
+                intent.putExtra("position", chorePosition.toString());
                 intent.putExtra("roommates", roommates);
                 context.startActivity(intent);
             });

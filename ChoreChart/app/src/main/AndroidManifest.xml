@@ -12,6 +12,9 @@
         android:theme="@style/Theme.ChoreChart"
         tools:targetApi="31">
         <activity
+            android:name=".activities.HelpScreenActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.NewChoreDetails"
             android:exported="false" />
         <activity
@@ -39,7 +42,7 @@
             android:exported="false" />
         <activity
             android:name=".activities.ChoreDetailsActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

@@ -23,6 +23,7 @@ import android.widget.TextView;
 import com.example.chorechart.R;
 import com.example.chorechart.data.Chore;
 import com.example.chorechart.data.Roommate;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -64,6 +65,45 @@ public class SearchChoreActivity extends AppCompatActivity {
 
         choreList = (ArrayList<Chore>) searchChoreActivityIntent.getSerializableExtra("chore_list");    // Retrieves the chore list form the previous activity
 
+        BottomNavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setSelectedItemId(R.id.navigation_search);
+
+        navigationView.setOnItemSelectedListener(item -> {
+            switch (item.getItemId()) {
+                case R.id.navigation_search:
+                    return true;
+                case R.id.fragment_menu:
+                    Intent homepageIntent = new Intent(SearchChoreActivity.this, HomepageActivity.class);
+                    homepageIntent.putExtra("chore_list", choreList);
+                    homepageIntent.putExtra("roommates", roommates);
+                    startActivity(homepageIntent);
+                    overridePendingTransition(0,0);
+                    return true;
+                case R.id.navigation_roommates:
+                    Intent newRoommatesIntent = new Intent(SearchChoreActivity.this, AddingRoommateProfileActivity.class);
+                    newRoommatesIntent.putExtra("chore_list", choreList);
+                    newRoommatesIntent.putExtra("roommates", roommates);
+                    startActivity(newRoommatesIntent);
+                    overridePendingTransition(0,0);
+                    return true;
+                case R.id.navigation_add:
+                    Intent addNewChoreIntent = new Intent(SearchChoreActivity.this, AddANewChore.class);
+                    addNewChoreIntent.putExtra("chore_list", choreList);
+                    addNewChoreIntent.putExtra("roommates", roommates);
+                    startActivity(addNewChoreIntent);
+                    overridePendingTransition(0,0);
+                    return true;
+                case R.id.navigation_profile:
+                    Intent profileActivity = new Intent(SearchChoreActivity.this, ProfilePage.class);
+                    profileActivity.putExtra("chore_list", choreList);
+                    profileActivity.putExtra("roommates", roommates);
+                    profileActivity.putExtra("roommate", roommates.get(0));
+                    startActivity(profileActivity);
+                    overridePendingTransition(0,0);
+                    return true;
+            }
+            return false;
+        });
 
         // Creates the dropdown menu for the assignee field
         ArrayAdapter<String> assigneeAdapter = new ArrayAdapter<>(this, R.layout.spinner__dropdown_item, names);

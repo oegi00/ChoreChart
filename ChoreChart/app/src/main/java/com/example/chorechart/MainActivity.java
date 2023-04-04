@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<Chore> choreList = new ArrayList<>();
         choreList.add(new Chore(
                 "Vacuum",
-                "Nazar Kopelchak",
+                "Nazar",
                 "Living Room",
                 "03/26/2023",
                 "Clean the living room for the upcoming party"
@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
 
         choreList.add(new Chore(
                 "Vacuum",
-                "Nazar Kopelchak",
+                "Nazar",
                 "Bedroom",
                 "03/26/2023",
                 "Clean the living room for the upcoming party"
@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
 
         choreList.add(new Chore(
                 "Dishes",
-                "Nazar Kopelchak",
+                "Nazar",
                 "Kitchen",
                 "03/25/2023",
                 "Wash the dishes"
@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
 
         choreList.add(new Chore(
                 "Sweep",
-                "Nazar Kopelchak",
+                "Riley",
                 "Kitchen",
                 "03/26/2023",
                 "Sweep the kitchen for the upcoming party"

@@ -24,6 +24,7 @@ import android.widget.Toast;
 import com.example.chorechart.R;
 import com.example.chorechart.data.Chore;
 import com.example.chorechart.data.Roommate;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -72,6 +73,46 @@ public class ChoreDetailsActivity extends AppCompatActivity {
             onBackPressed();    // Using built-in function
         });
 
+        BottomNavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setSelectedItemId(R.id.navigation_search);
+
+        navigationView.setOnItemSelectedListener(item -> {
+            switch (item.getItemId()) {
+                case R.id.navigation_search:
+                    return true;
+                case R.id.fragment_menu:
+                    Intent homepageIntent = new Intent(ChoreDetailsActivity.this, HomepageActivity.class);
+                    homepageIntent.putExtra("chore_list", choreList);
+                    homepageIntent.putExtra("roommates", roommates);
+                    startActivity(homepageIntent);
+                    overridePendingTransition(0,0);
+                    return true;
+                case R.id.navigation_roommates:
+                    Intent newRoommatesIntent = new Intent(ChoreDetailsActivity.this, AddingRoommateProfileActivity.class);
+                    newRoommatesIntent.putExtra("chore_list", choreList);
+                    newRoommatesIntent.putExtra("roommates", roommates);
+                    startActivity(newRoommatesIntent);
+                    overridePendingTransition(0,0);
+                    return true;
+                case R.id.navigation_add:
+                    Intent addNewChoreIntent = new Intent(ChoreDetailsActivity.this, AddANewChore.class);
+                    addNewChoreIntent.putExtra("chore_list", choreList);
+                    addNewChoreIntent.putExtra("roommates", roommates);
+                    startActivity(addNewChoreIntent);
+                    overridePendingTransition(0,0);
+                    return true;
+                case R.id.navigation_profile:
+                    Intent profileActivity = new Intent(ChoreDetailsActivity.this, ProfilePage.class);
+                    profileActivity.putExtra("chore_list", choreList);
+                    profileActivity.putExtra("roommates", roommates);
+                    profileActivity.putExtra("roommate", roommates.get(0));
+                    startActivity(profileActivity);
+                    overridePendingTransition(0,0);
+                    return true;
+            }
+            return false;
+        });
+
         Calendar calendar = Calendar.getInstance();
 
         DatePickerDialog.OnDateSetListener date = (datePicker, year, month, dayOfMonth) -> {
@@ -84,7 +125,7 @@ public class ChoreDetailsActivity extends AppCompatActivity {
         deadline.setOnClickListener(view -> new DatePickerDialog(ChoreDetailsActivity.this, date, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)).show());
 
         save.setOnClickListener(view -> {
-            Toast.makeText(this, "Chore Saved", Toast.LENGTH_SHORT);
+            Toast.makeText(this, "Chore Saved", Toast.LENGTH_SHORT).show();
             Chore modifiedChore = new Chore(title.getText().toString(), assignee.getText().toString(), location.getText().toString(), deadline.getText().toString(), description.getText().toString());
             choreList.set(chorePosition, modifiedChore);
             Intent homePageActivity = new Intent(this, HomepageActivity.class);
@@ -127,9 +168,9 @@ public class ChoreDetailsActivity extends AppCompatActivity {
             beforeLocation = location.getText().toString();
             beforeAssignee = assignee.getText().toString();
             beforeDescription = description.getText().toString();
-            Log.d("beforeTextChanged: ", beforeLocation);
-            Log.d("beforeTextChanged: ", beforeAssignee);
-            Log.d("beforeTextChanged: ", beforeDescription);
+//            Log.d("beforeTextChanged: ", beforeLocation);
+//            Log.d("beforeTextChanged: ", beforeAssignee);
+//            Log.d("beforeTextChanged: ", beforeDescription);
         }
 
         @Override

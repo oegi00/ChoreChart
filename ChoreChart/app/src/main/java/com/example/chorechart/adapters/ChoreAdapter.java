@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.chorechart.R;
+import com.example.chorechart.activities.ChoreDetailsActivity;
 import com.example.chorechart.activities.HomepageActivity;
 import com.example.chorechart.activities.ProfilePage;
 import com.example.chorechart.data.Chore;
@@ -68,6 +69,17 @@ public class ChoreAdapter extends RecyclerView.Adapter<ChoreAdapter.ChoreViewHol
             deadline = itemView.findViewById(R.id.homescreen_chore_deadline);
             doneFab = itemView.findViewById(R.id.homescreen_chore_completed);
             profileButton = itemView.findViewById(R.id.homescreen_profile_button);
+
+            itemView.setOnClickListener(view -> {
+                Integer chorePosition = getAbsoluteAdapterPosition();
+                Intent intent = new Intent(context, ChoreDetailsActivity.class);
+
+                intent.putExtra("chore_list", choreList);
+                intent.putExtra("chore", choreList.get(chorePosition));
+                intent.putExtra("position", chorePosition.toString());
+                intent.putExtra("roommates", roommates);
+                context.startActivity(intent);
+            });
 
             doneFab.setOnClickListener(view -> {
                 int chorePosition = getAbsoluteAdapterPosition();

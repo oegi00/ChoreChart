@@ -7,26 +7,25 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/addRoommateToolbar"
-        android:layout_width="413dp"
-        android:layout_height="62dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:background="#00b3ff"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
-    <TextView
-        android:id="@+id/addRoommate"
-        android:layout_width="150dp"
-        android:layout_height="29dp"
-        android:layout_marginTop="16dp"
-        android:text="Add Roommate"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/searchScreenToolBarTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add a Roommate"
+            android:textColor="@color/white"
+            android:textSize="24dp" />
+
+    </androidx.appcompat.widget.Toolbar>
 
     <Button
         android:id="@+id/button"
@@ -56,7 +55,7 @@
         android:layout_marginStart="16dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Enter Roommate Name"
+        android:hint="Enter Roommate Name"
         app:layout_constraintStart_toEndOf="@+id/textView3"
         app:layout_constraintTop_toTopOf="@+id/textView3" />
 
@@ -77,14 +76,14 @@
         android:layout_marginStart="16dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Enter Roommate Profile"
+        android:hint="Enter Roommate Profile"
         app:layout_constraintStart_toEndOf="@+id/textView4"
         app:layout_constraintTop_toTopOf="@+id/textView4" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="94dp"
-        android:layout_height="54dp"
+        android:layout_height="53dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:backgroundTint="#00b3ff"
@@ -103,4 +102,17 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:menu="@menu/bottom_nav_menu"/>
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="53dp"
+        android:layout_marginTop="64dp"
+        android:backgroundTint="@color/design_default_color_error"
+        android:text="Remove Roommate"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.858"
+        app:layout_constraintStart_toEndOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/roomateProfileTextBox" />
 </androidx.constraintlayout.widget.ConstraintLayout>

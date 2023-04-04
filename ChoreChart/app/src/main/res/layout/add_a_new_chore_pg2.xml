@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <include
-        android:id="@+id/searchScreenToolBarTitle"
+        android:id="@+id/newChoreDetailstoolbar"
         layout="@layout/new_chore_details_toolbar"/>
 
     <ImageView
@@ -46,7 +46,7 @@
         app:layout_constraintTop_toBottomOf="@+id/chore_details_deadline" />
 
     <EditText
-        android:id="@+id/chore_details_assignee_entry"
+        android:id="@+id/newChoreAssignee"
         android:layout_width="242dp"
         android:layout_height="44dp"
         android:layout_marginEnd="20dp"
@@ -56,7 +56,7 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
-        android:id="@+id/chore_details_location_entry"
+        android:id="@+id/newChoreLocation"
         android:layout_width="242dp"
         android:layout_height="45dp"
         android:layout_marginEnd="20dp"
@@ -66,7 +66,7 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
-        android:id="@+id/chore_details_description_entry"
+        android:id="@+id/newChoreDescription"
         android:layout_width="242dp"
         android:layout_height="88dp"
         android:layout_marginEnd="20dp"
@@ -90,7 +90,7 @@
         app:layout_constraintTop_toBottomOf="@+id/chore_details_image" />
 
     <EditText
-        android:id="@+id/chore_details_deadline_entry"
+        android:id="@+id/newChoreDeadline"
         android:layout_width="242dp"
         android:layout_height="44dp"
         android:layout_marginEnd="20dp"
@@ -117,32 +117,43 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/chore_details_location" />
 
-    <TextView
-        android:id="@+id/chore_details_title"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="160dp"
-        android:layout_marginEnd="16dp"
-        android:ems="10"
-        android:text=""
-        android:textSize="24dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/chore_details_image"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <Button
-        android:id="@+id/chore_details_save"
+        android:id="@+id/newChoreSaveButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="56dp"
         android:backgroundTint="#00b3ff"
-        android:text="Done"
+        android:text="Save"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:background="?android:attr/windowBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/bottom_nav_menu"/>
+
+    <EditText
+        android:id="@+id/newChoreName"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="96dp"
+        android:layout_marginEnd="4dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text=""
+        android:hint="Chore Name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/chore_details_image"
+        app:layout_constraintTop_toBottomOf="@+id/newChoreDetailstoolbar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
